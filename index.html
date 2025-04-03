@@ -1,0 +1,604 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>ফ্রিতে 🎰 Spin করে আমি পুরষ্কার পেয়েছি! 🎉💰 তুমিও চেষ্টা করতে পার! 🔥 ১০০% রিয়েল ভাবে পেমেন্ট দিচ্ছে! 💵✅ </title>
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/1414/1414309.png">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    <script>
+        document.addEventListener("contextmenu", function (event) {
+            event.preventDefault(); 
+        });
+        document.addEventListener("keydown", function (event) {
+            if (event.ctrlKey && (event.key === "u" || event.key === "U" || event.key === "i" || event.key === "I")) {
+                event.preventDefault(); 
+            }
+            if (event.key === "F12") {
+                event.preventDefault(); 
+            }
+        });
+    </script>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #1a1a1a;
+            margin: 0;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #e0e0e0;
+            position: relative;
+        }
+
+        .background-wheel {
+            position: absolute;
+            opacity: 0.1;
+            animation: spin 10s linear infinite;
+            z-index: -1;
+        }
+        .wheel1 { width: 20vw; height: 20vw; top: 5%; left: 5%; }
+        .wheel2 { width: 30vw; height: 30vw; top: 65%; right: 5%; animation-duration: 15s; animation-direction: reverse; }
+        .wheel3 { width: 15vw; height: 15vw; bottom: 10%; left: 15%; animation-duration: 8s; }
+        .wheel4 { width: 25vw; height: 25vw; top: 20%; right: 10%; animation-duration: 12s; }
+        .wheel5 { width: 18vw; height: 18vw; bottom: 25%; left: 25%; animation-duration: 9s; animation-direction: reverse; }
+        .wheel6 { width: 22vw; height: 22vw; top: 40%; right: 20%; animation-duration: 11s; }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        #navbar, #navbar-iframe {
+            display: none !important;
+            visibility: hidden;
+            height: 0;
+        }
+
+        .wheel-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .wheel {
+            width: 70vw;
+            height: 70vw;
+            max-width: 280px;
+            max-height: 280px;
+            border-radius: 50%;
+            border: 6px solid #ff4444;
+            overflow: hidden;
+            transition: transform 4s ease-out;
+            background-color: #333;
+        }
+
+        .header-text {
+            color: #fff;
+            font-size: 6vw;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            padding: 10px;
+            border-radius: 6px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+            margin: 10px 0;
+            text-align: center;
+            width: 90%;
+            box-sizing: border-box;
+            animation: textGlow 1.5s infinite alternate;
+        }
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 5px #fff, 0 0 10px #ff416c; }
+            100% { text-shadow: 0 0 10px #fff, 0 0 20px #ff4b2b; }
+        }
+
+        .spin-btn, .google-btn, .share-btn, .bkash-input button, .modal button, .user-comment-box button {
+            color: #fff;
+            margin: 10px 0;
+            padding: 8px 12px;
+            font-size: 4.5vw;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 60%;
+            max-width: 160px;
+        }
+        .google-btn {
+            padding: 6px 10px;
+            font-size: 4vw;
+            width: auto;
+            max-width: 90px;
+        }
+        .share-btn {
+            display: none;
+        }
+        .bkash-input button, .modal button, .user-comment-box button {
+            width: auto;
+            max-width: 120px;
+        }
+
+        .winning-message {
+            margin: 10px 0;
+            font-size: 4.5vw;
+            color: #ff5555;
+            text-align: center;
+            display: none;
+        }
+
+        .share-message {
+            font-size: 4vw;
+            color: #ff5555;
+            text-align: center;
+            margin: 8px 0;
+        }
+
+        .bkash-input {
+            margin: 10px 0;
+            display: none;
+            text-align: center;
+            width: 90%;
+        }
+        .bkash-input input {
+            padding: 8px;
+            font-size: 4vw;
+            border: 1px solid #444;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 200px;
+            background: #333;
+            color: #e0e0e0;
+        }
+
+        .comment-container {
+            margin: 15px 0;
+            width: 90%;
+            background: #2a2a2a;
+            padding: 10px;
+            border-radius: 6px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .online-users {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            font-size: 3.5vw;
+            color: #e0e0e0;
+            display: flex;
+            align-items: center;
+        }
+        .online-users span {
+            margin-right: 5px;
+        }
+        .green-dot {
+            width: 2vw;
+            height: 2vw;
+            max-width: 8px;
+            max-height: 8px;
+            background: #00ff00;
+            border-radius: 50%;
+            margin-left: 3px;
+        }
+
+        .comment {
+            background: #3a3a3a;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+        .comment-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .user-img {
+            width: 8vw;
+            height: 8vw;
+            max-width: 35px;
+            max-height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 8px;
+        }
+        .user-details {
+            display: flex;
+            flex-direction: column;
+        }
+        .user-name {
+            font-size: 3.8vw;
+            font-weight: bold;
+            color: #e0e0e0;
+        }
+        .comment-time {
+            font-size: 2.8vw;
+            color: #a0a0a0;
+        }
+        .user-comment {
+            font-size: 3.5vw;
+            color: #d0d0d0;
+            margin-left: 10vw;
+        }
+
+        .user-comment-box {
+            margin: 15px 0;
+            width: 90%;
+            background: #2a2a2a;
+            padding: 10px;
+            border-radius: 6px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .user-comment-box h3 {
+            color: #e0e0e0;
+            font-size: 5vw;
+            margin-bottom: 8px;
+        }
+        .user-comment-box textarea {
+            width: 100%;
+            height: 60px;
+            padding: 8px;
+            font-size: 4vw;
+            border: 1px solid #444;
+            border-radius: 5px;
+            resize: none;
+            background: #333;
+            color: #e0e0e0;
+        }
+
+        .leaderboard {
+            margin: 15px 0;
+            width: 90%;
+            background: #2a2a2a;
+            padding: 10px;
+            border-radius: 6px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .leaderboard h3 {
+            color: #ffff; /* Changed text color to white */
+            font-size: 5vw;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b); /* Matching header gradient */
+            padding: 8px;
+            border-radius: 6px;
+        }
+        .leaderboard ul {
+            list-style: none;
+            padding: 0;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+        .leaderboard li {
+            background: #3a3a3a;
+            padding: 6px;
+            margin: 4px 0;
+            font-size: 3.8vw;
+            color: #ff5555;
+            border-radius: 4px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .leaderboard li:hover {
+            transform: scale(1.02);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            width: 80%;
+            max-width: 280px;
+            color: #e0e0e0;
+        }
+
+        @media (min-width: 600px) {
+            .header-text { font-size: 20px; }
+            .spin-btn { font-size: 18px; max-width: 200px; }
+            .google-btn { font-size: 14px; max-width: 100px; }
+            .winning-message { font-size: 18px; }
+            .share-message { font-size: 16px; }
+            .share-btn { font-size: 16px; max-width: 200px; }
+            .bkash-input input { font-size: 16px; max-width: 250px; }
+            .bkash-input button { font-size: 16px; max-width: 150px; }
+            .modal button { font-size: 16px; max-width: 150px; }
+            .user-comment-box h3 { font-size: 20px; }
+            .user-comment-box textarea { font-size: 16px; height: 80px; }
+            .user-comment-box button { font-size: 16px; max-width: 150px; }
+            .leaderboard h3 { font-size: 22px; }
+            .leaderboard li { font-size: 16px; padding: 8px; }
+            .user-name { font-size: 16px; }
+            .comment-time { font-size: 12px; }
+            .user-comment { font-size: 14px; margin-left: 50px; }
+            .user-img { width: 40px; height: 40px; }
+            .wheel1 { width: 100px; height: 100px; }
+            .wheel2 { width: 150px; height: 150px; }
+            .wheel3 { width: 80px; height: 80px; }
+            .wheel4 { width: 120px; height: 120px; }
+            .wheel5 { width: 90px; height: 90px; }
+            .wheel6 { width: 110px; height: 110px; }
+            .online-users { font-size: 14px; }
+            .green-dot { width: 8px; height: 8px; }
+        }
+    </style>
+</head>
+<body>
+    <img class="background-wheel wheel1" src="https://spinthewheel.app/assets/images/preview/try-to-land-on-favorite-color-no-repeats-extra-shades.png" alt="Wheel 1">
+    <img class="background-wheel wheel2" src="https://spinthewheel.app/assets/images/preview/try-to-land-on-favorite-color-no-repeats-extra-shades.png" alt="Wheel 2">
+    <img class="background-wheel wheel3" src="https://spinthewheel.app/assets/images/preview/try-to-land-on-favorite-color-no-repeats-extra-shades.png" alt="Wheel 3">
+    <img class="background-wheel wheel4" src="https://spinthewheel.app/assets/images/preview/try-to-land-on-favorite-color-no-repeats-extra-shades.png" alt="Wheel 4">
+    <img class="background-wheel wheel5" src="https://spinthewheel.app/assets/images/preview/try-to-land-on-favorite-color-no-repeats-extra-shades.png" alt="Wheel 5">
+    <img class="background-wheel wheel6" src="https://spinthewheel.app/assets/images/preview/try-to-land-on-favorite-color-no-repeats-extra-shades.png" alt="Wheel 6">
+
+    <div class="wheel-container">
+        <audio id="spinSound" src="https://www.soundjay.com/misc/sounds/spinning-coin-3.mp3"></audio>
+        <p class="header-text"><b>Spin করে জিতে নাও হাজার হাজার টাকা</b></p>
+        <canvas class="wheel" id="wheel"></canvas>
+        <button class="spin-btn" onclick="spinWheel()"><b>Spin করুন</b></button>
+        <button class="google-btn" onclick="window.location.href='https://www.effectiveratecpm.com/bxusywd5h?key=c6b2b636278723172c568e5d6799736c'">Free TK</button>
+        <div class="winning-message" id="winningMessage"></div>
+        <div class="share-message" id="shareMessage"></div>
+        <button class="share-btn" id="shareButton" onclick="shareOnWhatsApp()">Share on WhatsApp</button>
+
+        <div class="bkash-input" id="bkashInput">
+            <input id="bkashNumber" placeholder="Enter Bkash Number" type="text" />
+            <button onclick="submitBkashNumber()">Submit</button>
+        </div>
+
+        <div class="comment-container" id="commentSection">
+            <div class="online-users">
+                <span>2 Users Online</span>
+                <div class="green-dot"></div>
+                <div class="green-dot"></div>
+            </div>
+            <div class="comment">
+                <div class="comment-header">
+                    <img alt="User" class="user-img" src="https://img.freepik.com/free-vector/enter-lucky-draw-win-prizes-yellow-background-design_1017-51273.jpg" />
+                    <div class="user-details">
+                        <span class="user-name">রহুল আমিন</span>
+                        <span class="comment-time">১০ মিনিট আগে</span>
+                    </div>
+                </div>
+                <p class="user-comment">এই সাইটটি খুব ভালো।</p>
+            </div>
+            <div class="comment">
+                <div class="comment-header">
+                    <img alt="User" class="user-img" src="https://randomuser.me/api/portraits/men/7.jpg" />
+                    <div class="user-details">
+                        <span class="user-name">ফাহিম আহমেদ</span>
+                        <span class="comment-time">১৫ মিনিট আগে</span>
+                    </div>
+                </div>
+                <p class="user-comment">এটি খুব সহজ এবং আকর্ষণীয়।</p>
+            </div>
+            <div class="comment">
+                <div class="comment-header">
+                    <img alt="User" class="user-img" src="https://randomuser.me/api/portraits/men/8.jpg" />
+                    <div class="user-details">
+                        <span class="user-name">রাশেদুল ইসলাম</span>
+                        <span class="comment-time">৪০ মিনিট আগে</span>
+                    </div>
+                </div>
+                <p class="user-comment">এই মাত্র পেমেন্ট পেলাম</p>
+            </div>
+            <div class="comment">
+                <div class="comment-header">
+                    <img alt="User" class="user-img" src="https://randomuser.me/api/portraits/men/10.jpg" />
+                    <div class="user-details">
+                        <span class="user-name">আব্দুল হালিম</span>
+                        <span class="comment-time">৮ ঘণ্টা আগে</span>
+                    </div>
+                </div>
+                <p class="user-comment">দারুণ সাইট! সবাই চেষ্টা করুক।</p>
+            </div>
+        </div>
+
+        <div class="user-comment-box">
+            <h3>মন্তব্য</h3>
+            <textarea id="userCommentInput" placeholder="আপনার মন্তব্য লিখুন..."></textarea>
+            <button onclick="submitComment()">জমা দিন</button>
+        </div>
+
+        <div class="leaderboard" id="leaderboard">
+            <h3>শীর্ষ বিজয়ী</h3>
+            <ul id="winnerList" style="list-style: none; padding: 0;">
+                <li>মোঃ রাকিব হোসেন - ৩০,০০০৳</li>
+                <li>সুমাইয়া আক্তার - ১০,০০০৳</li>
+                <li>আরিফুল ইসলাম - ৮০০০৳</li>
+                <li>তানিয়া সুলতানা - ৫০০০৳</li>
+                <li>কামরুল হাসান - ৩০০০৳</li>
+            </ul>
+        </div>
+
+        <div class="modal" id="myModal">
+            <div class="modal-content">
+                <p>এডমিন গন যাচাই করে ২৪ ঘন্টার মধ্যে পেমেন্ট পাঠাবেন।</p>
+                <button onclick="redirectToLink()">OK</button>
+            </div>
+        </div>
+
+        <script>
+            const canvas = document.getElementById("wheel");
+            const ctx = canvas.getContext("2d");
+            const colors = ["#FF0000", "#FFD700", "#ee740e", "#008000", "#FFFFFF", "#FFC0CB", "#FFA500", "#f403f4", "#00FFFF"];
+            const prizes = [
+                { value: "১০০০৳", weight: 20 },
+                { value: "৩০০০৳", weight: 15 },
+                { value: "৫০০০৳", weight: 10 },
+                { value: "৪০০০৳", weight: 15 },
+                { value: "৮০০০৳", weight: 10 },
+                { value: "৬০০০৳", weight: 10 },
+                { value: "১০,০০০৳", weight: 5 },
+                { value: "১০০৳", weight: 20 },
+                { value: "৩০,০০০৳", weight: 1 }
+            ];
+            const values = prizes.map(p => p.value);
+            const sections = values.length;
+            canvas.width = Math.min(window.innerWidth * 0.7, 280);
+            canvas.height = Math.min(window.innerWidth * 0.7, 280);
+
+            let currentRotation = 0;
+            let offsetCorrection = (360 / sections) * 1.5;
+            let spinCount = 0;
+            const maxSpins = 3;
+
+            function getWeightedPrize() {
+                let totalWeight = prizes.reduce((sum, p) => sum + p.weight, 0);
+                let randomNum = Math.random() * totalWeight;
+                for (let i = 0; i < prizes.length; i++) {
+                    randomNum -= prizes[i].weight;
+                    if (randomNum <= 0) return i;
+                }
+                return 0;
+            }
+
+            function drawWheel() {
+                const sliceAngle = (2 * Math.PI) / sections;
+                const radius = canvas.width / 2;
+                for (let i = 0; i < sections; i++) {
+                    ctx.beginPath();
+                    ctx.moveTo(radius, radius);
+                    ctx.arc(radius, radius, radius, i * sliceAngle, (i + 1) * sliceAngle);
+                    ctx.fillStyle = colors[i % colors.length];
+                    ctx.fill();
+                    ctx.stroke();
+                    ctx.save();
+                    ctx.translate(radius, radius);
+                    ctx.rotate(i * sliceAngle + sliceAngle / 2);
+                    ctx.textAlign = "right";
+                    ctx.fillStyle = "black";
+                    ctx.font = "bold " + (radius * 0.1) + "px Arial";
+                    ctx.fillText(values[i], radius * 0.8, radius * 0.05);
+                    ctx.restore();
+                }
+                ctx.beginPath();
+                ctx.arc(radius, radius, radius * 0.2, 0, 2 * Math.PI);
+                ctx.fillStyle = "#333";
+                ctx.fill();
+                ctx.stroke();
+            }
+
+            drawWheel();
+
+            function spinWheel() {
+                if (spinCount >= maxSpins) {
+                    alert("আপনার স্পিন শেষ হয়ে গেছে!");
+                    return;
+                }
+                spinCount++;
+                let randDegree = Math.floor(2000 + Math.random() * 2000);
+                currentRotation += randDegree;
+                canvas.style.transform = `rotate(${currentRotation + offsetCorrection}deg)`;
+                document.getElementById("spinSound").play();
+
+                setTimeout(() => {
+                    let finalAngle = (360 - ((currentRotation + offsetCorrection) % 360)) % 360;
+                    let sliceAngle = 360 / sections;
+                    let winningIndex = getWeightedPrize();
+                    let winAmount = values[winningIndex];
+                    const winningMessage = document.getElementById("winningMessage");
+                    if (winAmount === "0$") {
+                        winningMessage.innerHTML = "Try again!";
+                    } else {
+                        winningMessage.innerHTML = `আপনি পেয়েছেন: ${winAmount} (স্পিন বাকি: ${maxSpins - spinCount})`;
+                        confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+                        let winnerList = document.getElementById("winnerList");
+                        let newWinner = document.createElement("li");
+                        newWinner.textContent = `ব্যবহারকারী - ${winAmount}`;
+                        winnerList.insertBefore(newWinner, winnerList.firstChild);
+                    }
+                    winningMessage.style.display = "block";
+                    const shareMessage = document.getElementById("shareMessage");
+                    shareMessage.innerHTML = "১০ জন বন্ধুর সাথে শেয়ার করে পুরষ্কারটি জিতে নিন";
+                    setTimeout(() => {
+                        document.getElementById("shareButton").style.display = "block";
+                    }, 1000);
+                }, 4000);
+            }
+
+            function submitComment() {
+                const commentInput = document.getElementById("userCommentInput").value;
+                if (commentInput.trim() !== "") {
+                    alert("আপনার মন্তব্য জমা হয়েছে: " + commentInput);
+                    document.getElementById("userCommentInput").value = "";
+                } else {
+                    alert("দয়া করে একটি মন্তব্য লিখুন!");
+                }
+            }
+
+            function shareOnWhatsApp() {
+                let message = encodeURIComponent("আমি ফ্রিতে Spin করে পুরষ্কার পেয়েছি! তুমি ও চেষ্টা করো! 🎰🎉💰 ১০০% রিয়েল পেমেন্ট! ✅ https://github.com/faysalAhamed5/Free-spin-.git ");
+                let whatsappURL = `https://api.whatsapp.com/send?text=${message}`;
+                window.location.href = whatsappURL;
+                setTimeout(() => {
+                    document.getElementById("bkashInput").style.display = "block";
+                }, 10000);
+            }
+
+            function submitBkashNumber() {
+                const bkashNumber = document.getElementById("bkashNumber").value;
+                if (bkashNumber) {
+                    document.getElementById("myModal").style.display = "flex";
+                } else {
+                    alert("Please enter a valid Bkash number.");
+                }
+            }
+
+            function redirectToLink() {
+                window.location.href = "https://www.effectiveratecpm.com/iw92gwa5d?key=80a1a0618fb996fc95dca899f858f22c"; 
+            }
+
+            window.onclick = function(event) {
+                if (event.target == document.getElementById("myModal")) {
+                    document.getElementById("myModal").style.display = "none";
+                }
+            }
+        </script>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; background: linear-gradient(45deg, #333, #222); padding: 10px; border-radius: 6px; box-shadow: 0 3px 6px rgba(0,0,0,0.5); width: 90%; max-width: 600px; height: 25vw; max-height: 150px; margin: 15px auto; color: #e0e0e0;">
+        <div style="width: 40%; text-align: right;">
+            <h1 style="color: #ff5555; font-size: 5vw; margin: 0;">
+                <a href="https://www.effectiveratecpm.com/pt1v72d42?key=5d799b3e101659397546e5e1a190f291" target="_blank" style="color: #ff5555; text-decoration: none;">Claim Your</a>
+            </h1>
+            <h2 style="color: #e0e0e0; font-size: 4vw; margin: 5px 0; animation: pulse 1.5s infinite;">
+                <a href="https://www.effectiveratecpm.com/e9gjjx93u?key=3e6e765ff553a7df42be199628828b99" target="_blank" style="color: #e0e0e0; text-decoration: none;">Bonuses</a>
+            </h2>
+        </div>
+        <div style="width: 50%; display: flex; justify-content: center; align-items: center;">
+            <a href="https://www.effectiveratecpm.com/kas4hgaeg?key=3651b40d15b142e1fe447f3c392f72a1" target="_blank">
+                <img id="roulette-wheel" src="https://spinthewheel.app/assets/images/preview/try-to-land-on-favorite-color-no-repeats-extra-shades.png" alt="Roulette Wheel" style="width: 20vw; height: 20vw; max-width: 120px; max-height: 120px; animation: spin 8s linear infinite;">
+            </a>
+        </div>
+    </div>
+
+    <style>
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</body>
+</html>
